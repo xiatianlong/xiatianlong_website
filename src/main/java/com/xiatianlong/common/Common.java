@@ -1,7 +1,7 @@
 package com.xiatianlong.common;
 
 /**
- * Common class
+ * Common class .
  * Created by xiatianlong on 2017/1/16.
  */
 public class Common {
