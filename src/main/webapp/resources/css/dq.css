@@ -1,0 +1,138 @@
+
+/**
+    create by xaitianlong on 2017/03/17
+    前端自定义css样式 && 插件样式覆盖
+*/
+
+body{
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    background: #FFE0E8;
+}
+@media (min-width: 1600px){
+    .container {
+        width: 1366px;
+    }
+}
+::selection {
+    background:rgba(161,40,40,0.3);
+    color:rgba(255,255,255,0.8);;
+}
+.xtl-index-input, .xtl-index-input:active, .xtl-index-input:focus{
+    border: none;
+    border-bottom: 1px solid rgba(48,48,48,0.5);
+    background: rgba(255,255,255,0);
+    box-shadow:none;
+    border-radius: 0;
+}
+.xtl-has-not{
+    font-size: 13px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    color: rgba(161,40,40,0.6);
+}
+/* 导航 icon */
+.navbar-brand{
+    padding:10px 15px;
+}
+#xtl-navbar-user-unlogin{
+    color: #ffffff;
+    line-height: 50px;
+}
+#xtl-navbar-user-unlogin a{
+    color: #ffffff;
+}
+#xtl-navbar-user-unlogin a:hover{
+    text-decoration: underline;
+}
+#xtl-navbar-user-login{
+    color: #ffffff;
+    line-height: 50px;
+}
+#xtl-navbar-user-login img{
+    height:30px;
+    width: 30px;
+    border-radius: 15px;
+}
+#xtl-navbar-user-login img:hover{
+    cursor: pointer;
+}
+
+#xtl-gotop{
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+.xtl-gotop-item{
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+}
+.xtl-gotop-item > i{
+    line-height: 40px;
+}
+#xtl-gotop-up{
+    background: rgba(48,48,48,0.8);
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+#xtl-gotop-wechat{
+    background: rgba(48,48,48,0.8);
+    color: #64d914;
+    position: relative;
+}
+#xtl-gotop-wechat > img{
+    position: absolute;
+    top:-97px;
+    left:-140px;
+    width: 140px;
+    height: auto;
+    display: none;
+}
+#xtl-gotop-up:hover{
+    background: rgba(161,40,40,0.6);
+    cursor: pointer;
+}
+#xtl-gotop-wechat:hover{
+    background: rgba(161,40,40,0.6);
+    cursor: pointer;
+}
+#xtl-gotop-wechat:hover img{
+    display: inline-block;
+}
+/** menu css bengin */
+
+.navbar-inverse{
+    background: #CC6688;
+    border: none;
+    border-radius: 0;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
+    background: #CC6688;
+}
+.navbar-inverse .navbar-toggle{
+    border-color: #fff;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover{
+    background: #FFE0E8;
+    text-shadow: 5px 5px 5px #F0F0E6;
+    color: #CC6688;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color: #fff;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+    text-shadow: 5px 5px 5px #A4A49A;
+}
+@media screen and (min-width: 768px){
+    #navbar .nav>li {
+        width: 120px;
+        font-size:14px;
+        font-weight: 400;
+        text-align: center;
+    }
+}
+/** menu css end*/
+

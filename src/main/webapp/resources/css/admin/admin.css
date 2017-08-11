@@ -1,0 +1,112 @@
+
+/**
+    create by xaitianlong on 2017/04/16
+    后台管理自定义css样式 && 插件样式覆盖
+*/
+body{
+    background: #D7D7CD;
+}
+
+.breadcrumb{
+    background: none;
+}
+.pagination>li>a, .pagination>li>span{
+    background: none;
+    border:none;
+}
+
+.clearBoth{
+    clear: both;
+}
+.submit-btn{
+    letter-spacing: 5px;
+}
+
+.uploadImg-over-div{
+    float: left;
+    margin-right: 10px;
+    position: relative;
+}
+.uploadImg-over-show{
+    width: 100px;
+    height: auto;
+    max-height: 100px;
+}
+.uploadImg-over-remove-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.xtl-editor-content{
+    height: 300px;
+}
+.xtl-input{
+    background-color: rgba(255,255,255,0);
+    border:1px solid rgba(41,41,41,0.5)
+}
+/** article css begin */
+.article-offline-btn, .article-unrecommend-btn{
+    color: #777;
+}
+.article-online-btn, .article-recommend-btn{
+    color: #449d44;
+}
+/** article css end*/
+
+/** note css begin */
+.note-offline-btn, .note-unrecommend-btn{
+    color: #777;
+}
+.note-online-btn, .note-recommend-btn{
+    color: #449d44;
+}
+/** note css end*/
+
+/*index css begin*/
+#xtl-index-title{
+    font-size: 24px;
+    margin-top: 5%;
+    color: rgba(161,40,40,0.8);
+}
+.xtl-index-system-title{
+    font-size: 14px;
+    padding: 10px 20px;
+}
+.xtl-index-system-text{
+    font-size: 14px;
+    padding: 10px 20px;
+    color: rgba(161,40,40,0.8);
+}
+/*index css end*/
+
+/* footer css begin */
+#xtl-footer{
+    margin-top: 5%;
+    margin-bottom: 3%;
+    font-size:12px;
+}
+#xtl-footer > hr{
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 75%;
+}
+#xtl-footer > span{
+    color: rgba(161,40,40,0.5);
+    display: inline-block;
+    margin-right: 5px;
+}
+#xtl-footer > span:hover{
+    color: rgba(161,40,40,1);
+}
+#xtl-footer > a{
+    color: rgba(48,48,48,0.5);
+    display: inline-block;
+    margin-left: 5px;
+}
+#xtl-footer > a:hover{
+    color: rgba(48,48,48,1);
+    text-decoration: none;
+}
+/* footer css end */

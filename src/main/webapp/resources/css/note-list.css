@@ -1,0 +1,114 @@
+#gallery-wrapper {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+}
+img.thumb {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+.white-panel {
+    position: absolute;
+    background: rgba(255,255,255,0.4);
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    padding: 10px;
+}
+.white-panel :hover{
+    cursor: pointer;
+}
+@media screen and (max-width: 700px){
+    .white-panel {
+        margin-left:5%;;
+    }
+}
+.white-panel h1 {
+    font-size: 1em;
+}
+.white-panel h1 a {
+    color: #A92733;
+}
+.white-panel:hover {
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+    margin-top: -5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.xtl-note-tag{
+    display: inline-block;
+    padding: 2px 5px;
+    background: rgba(161,40,40,0.1);
+    border-radius: 3px;
+    font-size: 13px;
+    margin-right: 10px;
+}
+.xtl-note-title{
+    text-decoration: none;
+    color: rgba(161,40,40,0.8);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 0;
+    word-break: break-all;
+    display: inline-block;
+}
+.xtl-note-createtime{
+    display: inline-block;
+    font-size: 13px;
+    color: rgba(48,48,48,0.5);
+}
+.xtl-tag-group{
+    display: inline-block;
+    background: rgba(48,48,48,0.1);
+    color: rgba(161,42,42,1);
+    padding: 2px 4px;
+    border-radius: 3px;
+    margin-right: 3px;
+    margin-bottom: 8px;
+    position: relative;
+}
+.xtl-tag-group > span{
+    display: none;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 12px;
+    padding: 0 5px;
+    border-radius: 50%;
+    background: rgba(48,48,48,0.2);
+}
+.xtl-tag-group:hover{
+    color: rgba(48,48,48,1);
+    cursor: pointer;
+}
+.xtl-tag-group:hover span{
+    display: inline-block;
+}
+.search-tag{
+    display: inline-block;
+    border: 1px dashed rgba(0,0,0,0.2);
+    padding: 0 5px;
+    color: rgba(48,48,48,1);;
+    margin-right: 10px;
+}
+.search-tag-remove{
+    display: inline-block;
+    margin-left: 5px;
+    color: rgba(161,40,40,0.8);
+}
+.search-tag-remove:hover{
+    cursor: pointer;
+    color: rgba(161,40,10,1);
+}
+
+#note-search-btn:hover{
+    color: rgba(161,40,40,0.8);
+    cursor: pointer;
+}
+#note-search-btn-xs:hover{
+    color: rgba(161,40,40,0.8);
+    cursor: pointer;
+}
