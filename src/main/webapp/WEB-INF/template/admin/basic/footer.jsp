@@ -83,8 +83,8 @@
             // 只允许选择图片文件。
             accept: {
                 title: 'Images',
-                extensions: 'gif,jpg,jpeg,bmp,png',
-                mimeTypes: 'image/*'
+                extensions: 'gif,jpg,jpeg,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png,image/gif'
             }
         });
         // 文件上传前校验
