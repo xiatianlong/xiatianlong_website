@@ -37,7 +37,7 @@
 
         <div class="row">
             <div class="col-md-10 col-md-offset-1 margin-b-50">
-                <div id="cyReward" role="cylabs" data-use="reward" class="text-c"></div>
+                <%--<div id="cyReward" role="cylabs" data-use="reward" class="text-c"></div>--%>
                 <!--PC和WAP自适应版-->
                 <div id="SOHUCS" sid="article_${article.id}" ></div>
                 <script type="text/javascript">
@@ -53,8 +53,8 @@
         <!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
         <!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
         <!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
-        <script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
-        <script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cyt39FTO0"></script>
+        <%--<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>--%>
+        <%--<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cyt39FTO0"></script>--%>
 
         <jsp:include page="../basic/footer_design.jsp"></jsp:include>
 
