@@ -11,6 +11,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +63,9 @@ public class IndexServiceImpl extends BaseServiceImpl implements IndexService {
                 model.setType(index.getType());
                 model.setId(index.getId());
                 model.setTitle(index.getTitle());
-                model.setImage(index.getImage()+Common.IMG_STYLE);
+                if (!StringUtils.isEmpty(index.getImage())){
+                    model.setImage(index.getImage()+Common.IMG_STYLE);
+                }
                 model.setIntroduction(index.getIntroduction());
                 model.setUserId(index.getUserId());
                 model.setUserName(index.getUser().getUserName());
