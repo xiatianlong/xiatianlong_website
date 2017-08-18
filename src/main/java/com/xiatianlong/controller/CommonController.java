@@ -29,12 +29,16 @@ public class CommonController extends BaseController{
      */
     private long fileMaxSize2=2097152;
     /**
-     * 限制文件最大size : 10M
+     * 限制文件最大size : 5M
+     */
+    private long fileMaxSize5=5242880;
+    /**
+     * 限制文件最大size : 20M
      */
     private long fileMaxSize20=20971520;
 
     /**
-     * 单文件上传
+     * 文件上传
      * @param file  文件
      * @return  文件对象
      * @throws IOException  异常
@@ -46,8 +50,8 @@ public class CommonController extends BaseController{
         FileUploadResult result = new FileUploadResult();
         if (file != null){
             // 限制文件上传大小
-            if (file.getSize() > fileMaxSize20){
-                result.setMessage(getMessage("file.upload.max.size", new Object[]{"20M"}));
+            if (file.getSize() > fileMaxSize5){
+                result.setMessage(getMessage("file.upload.max.size", new Object[]{"5M"}));
                 return result;
             }
             FileUploadModel fileUploadModel = AliyunFileUploadUtil.upload(file);
@@ -77,8 +81,8 @@ public class CommonController extends BaseController{
         if (fileArray.length > 0){
             for (MultipartFile file : fileArray) {
                 // 限制文件上传大小
-                if (file.getSize() > fileMaxSize20){
-                    result.setMessage(getMessage("file.upload.max.size", new Object[]{"20M"}));
+                if (file.getSize() > fileMaxSize5){
+                    result.setMessage(getMessage("file.upload.max.size", new Object[]{"5M"}));
                     return result;
                 }
                 FileUploadModel fileUploadModel = AliyunFileUploadUtil.upload(file);
@@ -102,7 +106,6 @@ public class CommonController extends BaseController{
         }
         return result;
     }
-
 
     /**
      * editor富文本图片上传
