@@ -25,7 +25,7 @@ public class AliyunFileUploadUtil {
     public static FileUploadModel upload(MultipartFile file){
 
         // 创建ossClient实例
-        OSSClient ossClient = new OSSClient(Common.ALIYUN_UPLOAD_URL, Common.ACCESS_KEY_ID, Common.ACCESS_KEY_SECRET);
+        OSSClient ossClient = new OSSClient(Common.ENDPOINT, Common.ACCESS_KEY_ID, Common.ACCESS_KEY_SECRET);
         try{
             FileUploadModel fileUploadModel = new FileUploadModel();
             // 创建Bucket
