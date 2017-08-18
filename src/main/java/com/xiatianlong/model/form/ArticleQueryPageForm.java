@@ -14,7 +14,7 @@ public class ArticleQueryPageForm {
     /**
      * 每页显示的记录数
      */
-    private int pageSize = 5;
+    private int pageSize = 15;
 
     /**
      * 关键字
