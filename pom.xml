@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.xiatianlong</groupId>
-  <artifactId>xaitianlong</artifactId>
+  <artifactId>xiatianlong</artifactId>
   <packaging>war</packaging>
   <version>1.1.0</version>
-  <name>xaitianlong Maven Webapp</name>
+  <name>xiatianlong Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
 
@@ -237,7 +237,7 @@
   </properties>
 
   <build>
-    <finalName>xaitianlong-v1.0.0</finalName>
+    <finalName>xiatianlong-v1.0.0</finalName>
     <plugins>
 
       <plugin>
