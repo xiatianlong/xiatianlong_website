@@ -34,12 +34,12 @@ public class Common {
     /**
      * 阿里oss对象存储 ALIYUN_UPLOAD_URL(测试)
      */
-    public static final String ALIYUN_UPLOAD_URL = "test-file.xiatianlong.com";
+    public static final String ALIYUN_UPLOAD_URL = "test-xiatianlong.oss-cn-shanghai.aliyuncs.com";
 
     /**
      * 阿里oss对象存储 ALIYUN_UPLOAD_URL
      */
-//    public static final String ALIYUN_UPLOAD_URL = "file.xiatianlong.com";
+//    public static final String ALIYUN_UPLOAD_URL = "xiatianlong.oss-cn-shanghai.aliyuncs.com";
 
     /**
      * 阿里oss对象存储 BACKET(测试)
@@ -50,6 +50,11 @@ public class Common {
      * 阿里oss对象存储 BACKET（上线）
      */
 //    public static final String BACKET = "xiatianlong";
+
+    /**
+     * 阿里云图片样式
+     */
+    public static final String IMG_STYLE = "_style1";
 
     /**
      * 前端笔记每次加载数量

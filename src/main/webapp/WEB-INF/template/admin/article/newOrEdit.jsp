@@ -91,6 +91,12 @@
         var editor = new wangEditor('textarea1');
         editor.config.uploadImgUrl = '/common/editorFileUpload';
         editor.config.uploadImgFileName = 'editorUploadFileName';
+        editor.config.emotions = {
+            'sina': {
+                title: '微博表情',  // 组名称
+                data: '${pageContext.request.contextPath}/resources/js/wangEditor-2.1.23/sinaEmotions.data'
+            }
+        };
         // 将图片大小限制为 3M
         editor.config.uploadImgMaxSize = 3 * 1024 * 1024;
         // 限制一次最多上传 5 张图片

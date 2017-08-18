@@ -265,7 +265,7 @@ public class ArticleServiceImpl extends BaseServiceImpl implements ArticleServic
             model.setId(articleEntity.getId());
             model.setBrowseTimes(articleEntity.getBrowseTimes());
             model.setTitle(articleEntity.getTitle());
-            model.setImage(articleEntity.getImage());
+            model.setImage(articleEntity.getImage()+Common.IMG_STYLE);
             model.setIntroduction(articleEntity.getIntroduction());
             model.setContent(articleEntity.getContent());
             model.setStatus(DictionaryCache.getName(articleEntity.getStatus()));

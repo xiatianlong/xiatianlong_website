@@ -57,7 +57,7 @@ body{
 }
 
 .index-body{
-    background: url('../../resources/images/site-bg.jpg') no-repeat fixed;
+    background: url('../../resources/images/site-bg.jpg');
     background-size: 100% 100%;
 }
 

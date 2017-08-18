@@ -6,7 +6,8 @@
 
 body{
     font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-    background: #FFE0E8;
+    /*background: #FFE0E8;*/
+    background: white;
 }
 @media (min-width: 1600px){
     .container {
@@ -105,7 +106,8 @@ body{
 /** menu css bengin */
 
 .navbar-inverse{
-    background: #CC6688;
+    /*background: #CC6688;*/
+    background: #9cc8ff;
     border: none;
     border-radius: 0;
 }
@@ -135,4 +137,34 @@ body{
     }
 }
 /** menu css end*/
+.btn.btn-xtl-dq{
+    background: #CC6688;
+    color: white;
+}
+#dqPhotosContent div{
+    word-break: break-all;
+}
+#dqPhotosContent div img{
+    width: 100%;
+    height: auto;
+}
+
+.white-panel{
+    background: rgba(255,255,255,0.4);
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.white-panel:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+    margin-top: -5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+
 
