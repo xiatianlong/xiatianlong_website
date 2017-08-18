@@ -32,24 +32,21 @@ public class Common {
     public static final String ACCESS_KEY_SECRET = "wglAEqdzbde9KzqKsSzwkw2wEviTOZ";
 
     /**
-     * 阿里oss对象存储 ALIYUN_UPLOAD_URL(测试)
+     *  OSS服务的Endpoint。
      */
-    public static final String ALIYUN_UPLOAD_URL = "http://test-xiatianlong.oss-cn-shanghai.aliyuncs.com";
+    public static final String ENDPOINT = "oss-cn-shanghai.aliyuncs.com";
 
     /**
-     * 阿里oss对象存储 ALIYUN_UPLOAD_URL
+     * 开完环境
      */
-//    public static final String ALIYUN_UPLOAD_URL = "https://xiatianlong.oss-cn-shanghai.aliyuncs.com";
+    public static final String BACKET = "test-xiatianlong"; // 阿里oss对象存储 BACKET(测试)
+    public static final String ALIYUN_UPLOAD_URL = "http://test-xiatianlong.oss-cn-shanghai.aliyuncs.com"; // 阿里oss对象存储 ALIYUN_UPLOAD_URL
 
     /**
-     * 阿里oss对象存储 BACKET(测试)
+     * 测试环境
      */
-    public static final String BACKET = "test-xiatianlong";
-
-    /**
-     * 阿里oss对象存储 BACKET（上线）
-     */
-//    public static final String BACKET = "xiatianlong";
+//    public static final String BACKET = "xiatianlong"; //阿里oss对象存储 BACKET（上线）
+//    public static final String ALIYUN_UPLOAD_URL = "https://xiatianlong.oss-cn-shanghai.aliyuncs.com"; // 阿里oss对象存储 ALIYUN_UPLOAD_URL
 
     /**
      * 阿里云图片样式
@@ -79,7 +76,7 @@ public class Common {
     /**
      * 前端首页默认显示数
      */
-    public static final int INDEX_LIST_SIZE = 10;
+    public static final int INDEX_LIST_SIZE = 15;
 
     /**
      * 管理员邮箱
