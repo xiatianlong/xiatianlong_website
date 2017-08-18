@@ -42,7 +42,7 @@ public class AliyunFileUploadUtil {
             ossClient.putObject(Common.BACKET, uuid+"-"+file.getOriginalFilename(), file.getInputStream());
             // 拼装文件物理url
             StringBuilder fileUrl = new StringBuilder();
-            fileUrl.append("https://").append(Common.ALIYUN_UPLOAD_URL)
+            fileUrl.append(Common.ALIYUN_UPLOAD_URL)
                     .append("/").append(uuid).append("-").append(file.getOriginalFilename());
             System.out.println("upload file success! url : " + fileUrl.toString());
             fileUploadModel.setUrl(fileUrl.toString());

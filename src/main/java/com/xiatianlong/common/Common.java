@@ -34,12 +34,12 @@ public class Common {
     /**
      * 阿里oss对象存储 ALIYUN_UPLOAD_URL(测试)
      */
-    public static final String ALIYUN_UPLOAD_URL = "test-xiatianlong.oss-cn-shanghai.aliyuncs.com";
+    public static final String ALIYUN_UPLOAD_URL = "http://test-xiatianlong.oss-cn-shanghai.aliyuncs.com";
 
     /**
      * 阿里oss对象存储 ALIYUN_UPLOAD_URL
      */
-//    public static final String ALIYUN_UPLOAD_URL = "xiatianlong.oss-cn-shanghai.aliyuncs.com";
+//    public static final String ALIYUN_UPLOAD_URL = "https://xiatianlong.oss-cn-shanghai.aliyuncs.com";
 
     /**
      * 阿里oss对象存储 BACKET(测试)
