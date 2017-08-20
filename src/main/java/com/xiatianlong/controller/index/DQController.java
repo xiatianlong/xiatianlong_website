@@ -8,7 +8,9 @@ import com.xiatianlong.common.enums.UserStatus;
 import com.xiatianlong.controller.BaseController;
 import com.xiatianlong.dictionary.DictionaryCache;
 import com.xiatianlong.entity.XtlUserEntity;
+import com.xiatianlong.model.form.DQPhotosForm;
 import com.xiatianlong.model.response.AsynchronousResult;
+import com.xiatianlong.service.DQService;
 import com.xiatianlong.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,9 @@ public class DQController extends BaseController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private DQService dqService;
 
     /**
      * 首页
@@ -126,12 +131,28 @@ public class DQController extends BaseController {
     /**
      * 照片墙
      * @param model model
+     * @param session session
      * @return  首页
      */
     @RequestMapping(value = "/photos", method = RequestMethod.GET)
-    public String photos(Model model){
+    public String photos(Model model, HttpSession session){
         model.addAttribute("dq_navbarKey", DQNavbarKey.PHOTOS.getCode());
 
+        XtlUserEntity user = (XtlUserEntity) session.getAttribute("SESSION_USER_DQ");
+        if (user != null && RoleType.ADMIN.getCode().equals(user.getRoleCode())){
+            model.addAttribute("photoList", dqService.getPhotos(true, null, null));
+        }else{
+            model.addAttribute("photoList", dqService.getPhotos(false, null, null));
+        }
+
         return "view/dq/photoList";
+    }
+
+    @RequestMapping(value = "/photos/add", method = RequestMethod.POST)
+    @ResponseBody
+    public AsynchronousResult savePhotos(DQPhotosForm form, HttpSession session){
+
+        XtlUserEntity user = (XtlUserEntity) session.getAttribute("SESSION_USER_DQ");
+        return dqService.savePhotos(form, user);
     }
 }

@@ -266,7 +266,7 @@ public class ArticleServiceImpl extends BaseServiceImpl implements ArticleServic
             model.setBrowseTimes(articleEntity.getBrowseTimes());
             model.setTitle(articleEntity.getTitle());
             if (!StringUtils.isEmpty(articleEntity.getImage())) {
-                model.setImage(articleEntity.getImage() + Common.IMG_STYLE);
+                model.setImage(articleEntity.getImage() + Common.IMG_STYLE_1);
             }
             model.setIntroduction(articleEntity.getIntroduction());
             model.setContent(articleEntity.getContent());

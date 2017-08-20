@@ -49,5 +49,8 @@
 <%--APP Common(自定义的公共css文件)--%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
 
+<%--button css--%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/button.css">
+
 <%--APP Custom(这个文件必须放在整个CSS文件加载的最后)--%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dq.css">

@@ -56,7 +56,7 @@ public class XtlDQPhotosEntity extends XtlBaseEntity {
     /**
      * 获取 照片url
      */
-    @Column(name = "photo_url", nullable = false, length = 100)
+    @Column(name = "photo_url", nullable = false, length = 500)
     public String getPhotoUrl() {
         return this.photoUrl;
     }
@@ -86,6 +86,7 @@ public class XtlDQPhotosEntity extends XtlBaseEntity {
     /**
      * 获取 用户ID
      */
+    @Column(name = "user_id", length = 11)
     public int getUserId() {
         return this.userId;
     }

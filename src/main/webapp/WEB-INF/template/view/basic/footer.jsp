@@ -30,6 +30,9 @@
 <script src="${pageContext.request.contextPath}/resources/js/pageList/jquery.pagination.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/pageList/op.pagination.js"></script>
 
+<%--lazyload core js--%>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.lazyload.min.js"></script>
+
 <%--Common JS--%>
 <script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 

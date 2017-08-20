@@ -49,9 +49,9 @@ public class Common {
 //    public static final String ALIYUN_UPLOAD_URL = "https://xiatianlong.oss-cn-shanghai.aliyuncs.com"; // 阿里oss对象存储 ALIYUN_UPLOAD_URL
 
     /**
-     * 阿里云图片样式
+     * 阿里云图片样式(水印+小尺寸)
      */
-    public static final String IMG_STYLE = "_style1";
+    public static final String IMG_STYLE_1 = "_style1";
 
     /**
      * 前端笔记每次加载数量

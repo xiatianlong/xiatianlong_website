@@ -64,7 +64,7 @@ public class IndexServiceImpl extends BaseServiceImpl implements IndexService {
                 model.setId(index.getId());
                 model.setTitle(index.getTitle());
                 if (!StringUtils.isEmpty(index.getImage())){
-                    model.setImage(index.getImage()+Common.IMG_STYLE);
+                    model.setImage(index.getImage()+Common.IMG_STYLE_1);
                 }
                 model.setIntroduction(index.getIntroduction());
                 model.setUserId(index.getUserId());
