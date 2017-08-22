@@ -7,6 +7,11 @@ package com.xiatianlong.model;
 public class DQPhotosModel {
 
     /**
+     * 图片物理id
+     */
+    private Integer id;
+
+    /**
      * 图片url
      */
     private String photoUrl;
@@ -35,6 +40,11 @@ public class DQPhotosModel {
      * 是否删除
      */
     private boolean delete;
+
+    /**
+     * 显示删除
+     */
+    private boolean showDelete;
 
 
     /**
@@ -119,5 +129,35 @@ public class DQPhotosModel {
      */
     public void setDelete(boolean delete) {
         this.delete = delete;
+    }
+
+
+    /**
+     * 获取 显示删除
+     */
+    public boolean isShowDelete() {
+        return this.showDelete;
+    }
+
+    /**
+     * 设置 显示删除
+     */
+    public void setShowDelete(boolean showDelete) {
+        this.showDelete = showDelete;
+    }
+
+
+    /**
+     * 获取 图片物理id
+     */
+    public Integer getId() {
+        return this.id;
+    }
+
+    /**
+     * 设置 图片物理id
+     */
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

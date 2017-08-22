@@ -8,8 +8,10 @@ import com.xiatianlong.common.enums.UserStatus;
 import com.xiatianlong.controller.BaseController;
 import com.xiatianlong.dictionary.DictionaryCache;
 import com.xiatianlong.entity.XtlUserEntity;
+import com.xiatianlong.model.DQMessageModel;
 import com.xiatianlong.model.form.DQPhotosForm;
 import com.xiatianlong.model.response.AsynchronousResult;
+import com.xiatianlong.model.response.DQMessageResult;
 import com.xiatianlong.service.DQService;
 import com.xiatianlong.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * DQ
@@ -119,14 +122,52 @@ public class DQController extends BaseController {
     /**
      * 留言板
      * @param model model
+     * @param session session
      * @return  首页
      */
     @RequestMapping(value = "/message", method = RequestMethod.GET)
-    public String message(Model model){
+    public String message(Model model, HttpSession session){
         model.addAttribute("dq_navbarKey", DQNavbarKey.MESSAGE.getCode());
 
+        XtlUserEntity user = (XtlUserEntity) session.getAttribute("SESSION_USER_DQ");
+
+        model.addAttribute("messageList", dqService.getMessages(null, null, user));
         return "view/dq/messageList";
     }
+
+    /**
+     *留言列表加载更多
+     * @param lastMessageId 画面最后一条留言的物理id
+     * @param session   session
+     * @return  result
+     */
+    @RequestMapping(value = "/message/more", method = RequestMethod.POST)
+    @ResponseBody
+    public DQMessageResult message(Integer lastMessageId, HttpSession session){
+
+        DQMessageResult result = new DQMessageResult();
+        XtlUserEntity user = (XtlUserEntity) session.getAttribute("SESSION_USER_DQ");
+        List<DQMessageModel> messageModelList = dqService.getMessages(null, lastMessageId, user);
+        result.setMessageModelList(messageModelList);
+        result.setResult(Common.SUCCESS);
+        return result;
+    }
+
+    /**
+     *留言列表加载更多
+     * @param content 留言内容
+     * @param session   session
+     * @return  result
+     */
+    @RequestMapping(value = "/message/add", method = RequestMethod.POST)
+    @ResponseBody
+    public AsynchronousResult message(String content, HttpSession session){
+
+        XtlUserEntity user = (XtlUserEntity) session.getAttribute("SESSION_USER_DQ");
+
+        return dqService.saveMessage(content, user);
+    }
+
 
     /**
      * 照片墙
@@ -139,11 +180,7 @@ public class DQController extends BaseController {
         model.addAttribute("dq_navbarKey", DQNavbarKey.PHOTOS.getCode());
 
         XtlUserEntity user = (XtlUserEntity) session.getAttribute("SESSION_USER_DQ");
-        if (user != null && RoleType.ADMIN.getCode().equals(user.getRoleCode())){
-            model.addAttribute("photoList", dqService.getPhotos(true, null, null));
-        }else{
-            model.addAttribute("photoList", dqService.getPhotos(false, null, null));
-        }
+        model.addAttribute("photoList", dqService.getPhotos(null, null, user));
 
         return "view/dq/photoList";
     }
