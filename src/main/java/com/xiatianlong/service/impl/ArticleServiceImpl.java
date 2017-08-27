@@ -10,6 +10,7 @@ import com.xiatianlong.model.ArticleTimeMonthModel;
 import com.xiatianlong.model.form.ArticleForm;
 import com.xiatianlong.model.form.ArticleQueryPageForm;
 import com.xiatianlong.model.response.AsynchronousResult;
+import com.xiatianlong.model.response.xiaochengxu.ArticleResultModel;
 import com.xiatianlong.service.ArticleService;
 import com.xiatianlong.utils.DateUtil;
 import com.xiatianlong.utils.PageList;
@@ -457,6 +458,40 @@ public class ArticleServiceImpl extends BaseServiceImpl implements ArticleServic
         countCriteria.add(Restrictions.eq("status", ArticleStatus.HIDE.getCode()));
         countCriteria.setProjection(Projections.rowCount());
         return Integer.valueOf(countCriteria.uniqueResult().toString());
+    }
+
+    /**
+     * 获取文章列表
+     * @param id    文章id
+     * @return  文章对象
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<ArticleResultModel> getArticleListByXcx(Integer id) {
+
+        Criteria criteria = getSession().createCriteria(XtlArticleEntity.class);
+        if (id != null){
+            criteria.add(Restrictions.lt("id", id));
+        }
+        criteria.setMaxResults(5);
+        criteria.addOrder(Order.desc("id"));
+        List<XtlArticleEntity> articleEntities = criteria.list();
+
+        if (articleEntities != null && !articleEntities.isEmpty()){
+            List<ArticleResultModel> results = new ArrayList<>();
+            for (XtlArticleEntity articleEntity : articleEntities){
+                ArticleResultModel result = new ArticleResultModel();
+                result.setId(articleEntity.getId());
+                result.setIntroduction(articleEntity.getIntroduction());
+                result.setImage(StringUtils.isEmpty(articleEntity.getImage())?"":articleEntity.getImage());
+                result.setTitle(articleEntity.getTitle());
+                result.setCreateTime(DateUtil.getFormatString(articleEntity.getCreateTime(), DateUtil.defaultDatePattern));
+                results.add(result);
+            }
+            return results;
+        }
+
+        return null;
     }
 
 }

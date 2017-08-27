@@ -6,6 +6,7 @@ import com.xiatianlong.model.ArticleTimeMonthModel;
 import com.xiatianlong.model.form.ArticleForm;
 import com.xiatianlong.model.form.ArticleQueryPageForm;
 import com.xiatianlong.model.response.AsynchronousResult;
+import com.xiatianlong.model.response.xiaochengxu.ArticleResultModel;
 import com.xiatianlong.utils.PageList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -145,4 +146,12 @@ public interface ArticleService extends BaseService {
      * @return  数量
      */
     int getArticleCntByOffline();
+
+
+    /**
+     * 获取文章列表
+     * @param id    文章id
+     * @return  文章对象
+     */
+    List<ArticleResultModel> getArticleListByXcx(Integer id);
 }
