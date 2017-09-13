@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -154,7 +155,7 @@ public class DQController extends BaseController {
     }
 
     /**
-     *留言列表加载更多
+     *留言保存
      * @param content 留言内容
      * @param session   session
      * @return  result
@@ -168,6 +169,17 @@ public class DQController extends BaseController {
         return dqService.saveMessage(content, user);
     }
 
+    /**
+     * 删除message
+     * @param messageId messageID
+     * @return  结果
+     */
+    @RequestMapping(value = "/message/{messageId}/remove", method = RequestMethod.POST)
+    @ResponseBody
+    public AsynchronousResult removeMessage(@PathVariable("messageId") Integer messageId){
+
+        return dqService.removeMessage(messageId);
+    }
 
     /**
      * 照片墙

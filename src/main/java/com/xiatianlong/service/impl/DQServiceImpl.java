@@ -157,6 +157,31 @@ public class DQServiceImpl extends BaseServiceImpl implements DQService {
     }
 
     /**
+     * 删除留言
+     * @param messageId messageID
+     * @return  返回
+     */
+    @Transactional
+    @Override
+    public AsynchronousResult removeMessage(Integer messageId) {
+        AsynchronousResult result = new AsynchronousResult();
+        if (messageId == null){
+            result.setMessage(getMessage("message.id.null"));
+            return  result;
+        }
+        XtlDQMessageEntity messageEntity = (XtlDQMessageEntity)getSession().get(XtlDQMessageEntity.class, messageId);
+        if (messageEntity == null){
+            result.setMessage(getMessage("message.null"));
+            return  result;
+        }
+        messageEntity.setDelete(true);
+        messageEntity.setModifyTime(new Date());
+        getSession().update(messageEntity);
+        result.setResult(Common.SUCCESS);
+        return result;
+    }
+
+    /**
      * 获取照片相关数据（封装）
      * @param photosEntities    照片对象集合
      * @param currentUser   当前用户

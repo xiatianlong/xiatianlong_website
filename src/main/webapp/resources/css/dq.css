@@ -195,3 +195,30 @@ body{
     color: rgba(161,40,40,0.6);
     text-decoration:line-through;
 }
+#dq-message-textarea{
+    min-height: 15em;
+    width: 100%;
+    resize:none;
+    border: none;
+}
+.messageItemContent{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+#dqMessageShowContent{
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+     background: none;
+     border: none;
+}
+#messageRemoveBtn{
+    position: absolute;
+    bottom: 0;
+    left: 1em;
+}

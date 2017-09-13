@@ -50,4 +50,11 @@ public interface DQService extends BaseService {
      */
     AsynchronousResult saveMessage(String message, XtlUserEntity currentUser);
 
+    /**
+     * 删除留言
+     * @param messageId messageID
+     * @return  返回
+     */
+    AsynchronousResult removeMessage(Integer messageId);
+
 }

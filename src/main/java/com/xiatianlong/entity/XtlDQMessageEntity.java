@@ -67,6 +67,7 @@ public class XtlDQMessageEntity extends XtlBaseEntity {
     /**
      * 获取 用户ID
      */
+    @Column(name = "user_id", length = 11)
     public int getUserId() {
         return this.userId;
     }
