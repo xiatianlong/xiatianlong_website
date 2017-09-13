@@ -200,7 +200,7 @@ public class DQServiceImpl extends BaseServiceImpl implements DQService {
                 model.setPhotoMemo(photosEntity.getPhotoName());
                 model.setDelete(photosEntity.isDelete());
                 model.setId(photosEntity.getId());
-                model.setShowDelete(photosEntity.getUserId()==currentUser.getId());
+                model.setShowDelete(photosEntity.isDelete());
 
                 models.add(model);
             }
@@ -225,7 +225,7 @@ public class DQServiceImpl extends BaseServiceImpl implements DQService {
                 messageModel.setUserImg(messageEntity.getUser().getImg());
                 messageModel.setCreateTime(DateUtil.getFormatString(messageEntity.getCreateTime(), DateUtil.defaultDatePattern));
                 messageModel.setId(messageEntity.getId());
-                messageModel.setShowDelete(messageEntity.getUserId()==currentUser.getId());
+                messageModel.setShowDelete(messageEntity.isDelete());
                 messageModels.add(messageModel);
             }
             return messageModels;
