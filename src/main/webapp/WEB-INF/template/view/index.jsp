@@ -26,17 +26,18 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="col-md-12 col-sm-12 col-xs-12" id="xtl-index-head">
-                        <img src="${pageContext.request.contextPath}/resources/images/banner.jpg">
-                        <span id="xtl-index-head1" class="animated fadeIn">既然选择了远方</span>
-                        <span id="xtl-index-head2">便只顾风雨兼程</span>
-                    </div>
-                </div>
+                <%--<div class="col-md-12 col-sm-12 col-xs-12">--%>
+                    <%--<div class="col-md-12 col-sm-12 col-xs-12" id="xtl-index-head">--%>
+                        <%--<img src="${pageContext.request.contextPath}/resources/images/banner.jpg">--%>
+                        <%--<span id="xtl-index-head1" class="animated fadeIn">既然选择了远方</span>--%>
+                        <%--<span id="xtl-index-head2">便只顾风雨兼程</span>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
 
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12 margin-t-20">
                     <div class="col-md-8 col-sm-8 col-xs-12 mobile-padding-0">
-                        <blockquote class="xtl-blockquote"><span>推荐</span></blockquote>
+                        <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-img-tab-title "><img src="${pageContext.request.contextPath}/resources/images/biz/icon/paperClip_128px.png"></div>
+
                         <c:if test="${not empty list && list.size() gt 0}">
                             <c:forEach items="${list}" var="index" varStatus="status">
                                 <c:choose>
@@ -87,43 +88,18 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12 mobile-padding-0">
                         <div class="col-md-12 col-sm-12 col-xs-12 padding-0">
-                            <blockquote class="xtl-blockquote"><span>最新</span></blockquote>
+                            <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-img-tab-title "><img src="${pageContext.request.contextPath}/resources/images/biz/icon/new_128px.png"></div>
                             <div class="col-md-12 col-sm-12 col-xs-12 padding-0" id="xtl-index-new">
-                                <!-- Nav tabs -->
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#article-tab-new" aria-controls="article-tab-new" role="tab" data-toggle="tab" class="xtl-index-tab-title">Article</a></li>
-                                    <li role="presentation"><a href="#note-tab-new" aria-controls="note-tab-new" role="tab" data-toggle="tab" class="xtl-index-tab-title">Note</a></li>
-                                </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="article-tab-new">
                                         <c:choose>
-                                            <c:when test="${not empty newArticleList && newArticleList.size() gt 0}">
-                                                <c:forEach items="${newArticleList}" var="article">
+                                            <c:when test="${not empty newList && newList.size() gt 0}">
+                                                <c:forEach items="${newList}" var="article">
                                                     <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-text-overflow xtl-tab-item">
                                                         <a href="${pageContext.request.contextPath}/article/${article.id}">${article.title}</a>
                                                     </div>
                                                 </c:forEach>
-                                                <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-text-overflow xtl-tab-item-more">
-                                                    <a href="${pageContext.request.contextPath}/article/list">查看更多</a>
-                                                </div>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <div class="col-md-12 col-sm-12 col-xs-12 xtl-has-not text-c">暂无最新....</div>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane" id="note-tab-new">
-                                        <c:choose>
-                                            <c:when test="${not empty newNoteList && newNoteList.size() gt 0}">
-                                                <c:forEach items="${newNoteList}" var="note">
-                                                    <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-text-overflow xtl-tab-item">
-                                                        <a href="${pageContext.request.contextPath}/note/${note.id}">${note.title}</a>
-                                                    </div>
-                                                </c:forEach>
-                                                <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-text-overflow xtl-tab-item-more">
-                                                    <a href="${pageContext.request.contextPath}/note/list">查看更多</a>
-                                                </div>
                                             </c:when>
                                             <c:otherwise>
                                                 <div class="col-md-12 col-sm-12 col-xs-12 xtl-has-not text-c">暂无最新....</div>
@@ -134,43 +110,18 @@
                             </div>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 padding-0">
-                            <blockquote class="xtl-blockquote"><span>最热</span></blockquote>
+                            <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-img-tab-title "><img src="${pageContext.request.contextPath}/resources/images/biz/icon/hot_128px.png"></div>
                             <div class="col-md-12 col-sm-12 col-xs-12 padding-0"  id="xtl-index-hot">
-                                <!-- Nav tabs -->
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#article-tab-hot" aria-controls="article-tab-hot" role="tab" data-toggle="tab" class="xtl-index-tab-title">Article</a></li>
-                                    <li role="presentation"><a href="#note-tab-hot" aria-controls="note-tab-hot" role="tab" data-toggle="tab" class="xtl-index-tab-title">Note</a></li>
-                                </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="article-tab-hot">
                                         <c:choose>
-                                            <c:when test="${not empty hotArticleList && hotArticleList.size() gt 0}">
-                                                <c:forEach items="${hotArticleList}" var="article">
+                                            <c:when test="${not empty hotList && hotList.size() gt 0}">
+                                                <c:forEach items="${hotList}" var="article">
                                                     <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-text-overflow xtl-tab-item">
                                                         <a href="${pageContext.request.contextPath}/article/${article.id}">${article.title}</a>
                                                     </div>
                                                 </c:forEach>
-                                                <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-text-overflow xtl-tab-item-more">
-                                                    <a href="${pageContext.request.contextPath}/article/list">查看更多</a>
-                                                </div>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <div class="col-md-12 col-sm-12 col-xs-12 xtl-has-not text-c">暂无最热....</div>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane" id="note-tab-hot">
-                                        <c:choose>
-                                            <c:when test="${not empty hotNoteList && hotNoteList.size() gt 0}">
-                                                <c:forEach items="${hotNoteList}" var="note">
-                                                    <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-text-overflow xtl-tab-item">
-                                                        <a href="${pageContext.request.contextPath}/note/${note.id}">${note.title}</a>
-                                                    </div>
-                                                </c:forEach>
-                                                <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-text-overflow xtl-tab-item-more">
-                                                    <a href="${pageContext.request.contextPath}/note/list">查看更多</a>
-                                                </div>
                                             </c:when>
                                             <c:otherwise>
                                                 <div class="col-md-12 col-sm-12 col-xs-12 xtl-has-not text-c">暂无最热....</div>

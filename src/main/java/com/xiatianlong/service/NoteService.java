@@ -34,18 +34,6 @@ public interface NoteService extends BaseService {
     List<NoteModel> getNoteListBySearch(IndexNoteQueryForm queryForm, boolean isScroll);
 
     /**
-     * 前端首页最新笔记
-     * @return  笔记列表
-     */
-    List<NoteModel> getNewNoteListByIndex();
-
-    /**
-     * 前端首页最热笔记
-     * @return  笔记列表
-     */
-    List<NoteModel> getHotNoteListByIndex();
-
-    /**
      * 获取笔记分页列表（admin）
      * @param form  form
      * @return  list

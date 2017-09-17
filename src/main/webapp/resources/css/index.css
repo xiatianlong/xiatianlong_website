@@ -30,6 +30,9 @@ body{
     color: rgba(161,40,40,0.6);
 }
 /* 导航 icon */
+#xiatianlong-nav-bar{
+    z-index: 1367;
+}
 .navbar-brand{
     padding:10px 15px;
 }
@@ -108,30 +111,33 @@ body{
 /** menu css bengin */
 
 .navbar-inverse{
-    background: none;
-    border: none;
+    background: rgba(48,48,48,.8);
+    border: rgba(48,48,48,.8);
 }
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover{
     background: none;
 }
 .navbar-inverse .navbar-nav>li>a{
-    color: #303030;
+    color: rgba(255,255,255,0.7);
+    border-top: 3px solid rgba(255,255,255,0);
 }
 .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li.active>a:hover{
-    color: rgba(161,40,40,0.8);
+    color: rgba(255,255,255,1);
+    border-top: 3px solid #fff;
 }
 .navbar-inverse .navbar-nav>.active>a{
-    color: rgba(161,40,40,0.8);
+    color: rgba(255,255,255,1);
+    border-top: 3px solid #fff;
 }
 @media screen and (min-width: 768px){
-    .navbar-inverse{
-        margin-top: 30px;
-    }
     #navbar .nav>li {
-        width: 120px;
+        width: 110px;
         font-size:18px;
         font-weight: bold;
         text-align: center;
+    }
+    .navbar {
+        border-radius: 0;
     }
 }
 /** menu css end*/
@@ -201,6 +207,14 @@ body{
     border-left: 5px solid rgba(161,40,40,0.5);
     font-weight: 700;
     color: rgba(48,48,48,0.8);
+    background-color: #d5d5d5;
+}
+.xtl-img-tab-title{
+    margin-bottom: 5px;
+}
+.xtl-img-tab-title > img{
+    width: 50px;
+    height: auto;
 }
 
 .index-article-card{

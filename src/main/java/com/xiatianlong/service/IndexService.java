@@ -16,5 +16,17 @@ public interface IndexService extends BaseService {
      */
     List<IndexArticleNoteModel> getArticleAndNote();
 
+    /**
+     * 获取文章和笔记(首页最新)
+     * @return  model集合
+     */
+    List<IndexArticleNoteModel> getArticleAndNoteByNew();
+
+    /**
+     * 获取文章和笔记(首页最热)
+     * @return  model集合
+     */
+    List<IndexArticleNoteModel> getArticleAndNoteByHot();
+
 
 }

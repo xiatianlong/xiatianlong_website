@@ -41,6 +41,36 @@ public class IndexServiceImpl extends BaseServiceImpl implements IndexService {
 
     }
 
+    /**
+     * 获取文章和笔记(首页最新)
+     * @return  model集合
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<IndexArticleNoteModel> getArticleAndNoteByNew() {
+        Criteria criteria = getSession().createCriteria(XtlArticleNoteShowUnionAllView.class);
+        criteria.setMaxResults(Common.INDEX_NEW_LIST_SIZE);
+        criteria.addOrder(Order.desc("createTime"));
+        List<XtlArticleNoteShowUnionAllView> list =  criteria.list();
+
+        return getIndexModelList(list);
+    }
+
+    /**
+     * 获取文章和笔记(首页最热)
+     * @return  model集合
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<IndexArticleNoteModel> getArticleAndNoteByHot() {
+        Criteria criteria = getSession().createCriteria(XtlArticleNoteShowUnionAllView.class);
+        criteria.setMaxResults(Common.INDEX_HOT_LIST_SIZE);
+        criteria.addOrder(Order.desc("browsTimes"));
+        List<XtlArticleNoteShowUnionAllView> list =  criteria.list();
+
+        return getIndexModelList(list);
+    }
+
 
     /**
      * 封装index model数据

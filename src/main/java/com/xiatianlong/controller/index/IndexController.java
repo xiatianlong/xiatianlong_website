@@ -2,9 +2,7 @@ package com.xiatianlong.controller.index;
 
 import com.xiatianlong.common.enums.NavbarKey;
 import com.xiatianlong.controller.BaseController;
-import com.xiatianlong.service.ArticleService;
 import com.xiatianlong.service.IndexService;
-import com.xiatianlong.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +19,6 @@ public class IndexController extends BaseController {
 
     @Autowired
     private IndexService indexService;
-
-    @Autowired
-    private NoteService noteService;
-
-    @Autowired
-    private ArticleService articleService;
-
     /**
      * 首页
      * @param model model
@@ -39,14 +30,10 @@ public class IndexController extends BaseController {
 
         // 列表
         model.addAttribute("list", indexService.getArticleAndNote());
-        // 最新笔记列表
-        model.addAttribute("newNoteList", noteService.getNewNoteListByIndex());
-        // 最热笔记列表
-        model.addAttribute("hotNoteList", noteService.getHotNoteListByIndex());
-        // 最新文章列表
-        model.addAttribute("newArticleList", articleService.getNewArticleListByIndex());
-        // 最热文章列表
-        model.addAttribute("hotArticleList", articleService.getHotArticleListByIndex());
+        // 最新列表
+        model.addAttribute("newList", indexService.getArticleAndNoteByNew());
+        // 最热列表
+        model.addAttribute("hotList", indexService.getArticleAndNoteByHot());
 
         return "/view/index";
     }

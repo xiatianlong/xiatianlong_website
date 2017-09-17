@@ -66,12 +66,12 @@ public class Common {
     /**
      * 前端首页 热门 显示最大数量
      */
-    public static final int INDEX_HOT_LIST_SIZE = 5;
+    public static final int INDEX_HOT_LIST_SIZE = 8;
 
     /**
      * 前端首页 最新 显示最大数量
      */
-    public static final int INDEX_NEW_LIST_SIZE = 5;
+    public static final int INDEX_NEW_LIST_SIZE = 8;
 
     /**
      * 前端首页默认显示数

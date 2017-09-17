@@ -36,6 +36,9 @@
 <%--Common JS--%>
 <script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 
+<%--sticky JS--%>
+<script src="${pageContext.request.contextPath}/resources/js/sticky/jquery.sticky.js"></script>
+
 
 
 
@@ -60,6 +63,9 @@
     $("#xtl-gotop-up").click(function() {
         $("body,html").animate({scrollTop:0},400);
     });
+    $(function(){
+        $('#xiatianlong-nav-bar').sticky({zIndex:1366});
+    })
 </script>
 <%--去顶部的实现 end--%>
 

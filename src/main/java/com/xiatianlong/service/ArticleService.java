@@ -124,18 +124,6 @@ public interface ArticleService extends BaseService {
     void addArticleBrowseTimes(XtlArticleEntity articleEntity);
 
     /**
-     * 前端首页最新文章
-     * @return  文章列表
-     */
-    List<ArticleModel> getNewArticleListByIndex();
-
-    /**
-     * 前端首页最热文章
-     * @return  文章列表
-     */
-    List<ArticleModel> getHotArticleListByIndex();
-
-    /**
      * 获取上线的文章总数
      * @return  数量
      */

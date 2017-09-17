@@ -405,38 +405,6 @@ public class ArticleServiceImpl extends BaseServiceImpl implements ArticleServic
     }
 
     /**
-     * 获取最新的文章
-     * @return  model集合
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<ArticleModel> getNewArticleListByIndex() {
-        Criteria criteria = getSession().createCriteria(XtlArticleEntity.class);
-        criteria.add(Restrictions.eq("status", ArticleStatus.SHOW.getCode()));
-        criteria.setMaxResults(Common.INDEX_NEW_LIST_SIZE);
-        criteria.addOrder(Order.desc("createTime"));
-        List<XtlArticleEntity> list =  criteria.list();
-
-        return getArticleModelList(list);
-    }
-
-    /**
-     * 获取热门的文章
-     * @return  model集合
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<ArticleModel> getHotArticleListByIndex() {
-        Criteria criteria = getSession().createCriteria(XtlArticleEntity.class);
-        criteria.add(Restrictions.eq("status", ArticleStatus.SHOW.getCode()));
-        criteria.setMaxResults(Common.INDEX_HOT_LIST_SIZE);
-        criteria.addOrder(Order.desc("browseTimes"));
-        List<XtlArticleEntity> list =  criteria.list();
-
-        return getArticleModelList(list);
-    }
-
-    /**
      * 获取上线的文章总数
      * @return  数量
      */

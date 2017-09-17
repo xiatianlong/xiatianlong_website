@@ -105,39 +105,6 @@ public class NoteServiceImpl extends BaseServiceImpl implements NoteService {
         return null;
     }
 
-
-    /**
-     * 获取最新的笔记
-     * @return  model集合
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<NoteModel> getNewNoteListByIndex() {
-        Criteria criteria = getSession().createCriteria(XtlNoteEntity.class);
-        criteria.add(Restrictions.eq("status", NoteStatus.SHOW.getCode()));
-        criteria.setMaxResults(Common.INDEX_NEW_LIST_SIZE);
-        criteria.addOrder(Order.desc("createTime"));
-        List<XtlNoteEntity> list =  criteria.list();
-
-        return getNoteModelList(list);
-    }
-
-    /**
-     * 获取热门的笔记
-     * @return  model集合
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<NoteModel> getHotNoteListByIndex() {
-        Criteria criteria = getSession().createCriteria(XtlNoteEntity.class);
-        criteria.add(Restrictions.eq("status", NoteStatus.SHOW.getCode()));
-        criteria.setMaxResults(Common.INDEX_HOT_LIST_SIZE);
-        criteria.addOrder(Order.desc("browseTimes"));
-        List<XtlNoteEntity> list =  criteria.list();
-
-        return getNoteModelList(list);
-    }
-
     /**
      * 封装sql需要的标签参数
      * @param tags  标签数组
