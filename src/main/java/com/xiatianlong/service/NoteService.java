@@ -7,6 +7,7 @@ import com.xiatianlong.model.form.IndexNoteQueryForm;
 import com.xiatianlong.model.form.NoteForm;
 import com.xiatianlong.model.form.NoteQueryPageForm;
 import com.xiatianlong.model.response.AsynchronousResult;
+import com.xiatianlong.model.response.xiaochengxu.NoteResultModel;
 import com.xiatianlong.utils.PageList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -132,5 +133,12 @@ public interface NoteService extends BaseService {
      * @param noteEntity 笔记对象
      */
     void addNoteBrowseTimes(XtlNoteEntity noteEntity);
+
+    /**
+     * 获取文章列表
+     * @param id    文章id
+     * @return  文章对象
+     */
+    List<NoteResultModel> getNoteListByXcx(Integer id);
 
 }

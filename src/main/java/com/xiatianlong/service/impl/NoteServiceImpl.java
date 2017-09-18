@@ -11,6 +11,7 @@ import com.xiatianlong.model.form.IndexNoteQueryForm;
 import com.xiatianlong.model.form.NoteForm;
 import com.xiatianlong.model.form.NoteQueryPageForm;
 import com.xiatianlong.model.response.AsynchronousResult;
+import com.xiatianlong.model.response.xiaochengxu.NoteResultModel;
 import com.xiatianlong.service.NoteService;
 import com.xiatianlong.utils.DateUtil;
 import com.xiatianlong.utils.PageList;
@@ -439,5 +440,45 @@ public class NoteServiceImpl extends BaseServiceImpl implements NoteService {
         }
 
     }
-    
+
+
+    /**
+     * 获取文章列表
+     * @param id    文章id
+     * @return  文章对象
+     */
+    @Override
+    public List<NoteResultModel> getNoteListByXcx(Integer id) {
+        Criteria criteria = getSession().createCriteria(XtlNoteEntity.class);
+        if (id != null){
+            criteria.add(Restrictions.lt("id", id));
+        }
+        criteria.add(Restrictions.eq("status", NoteStatus.SHOW.getCode()));
+        criteria.setMaxResults(7);
+        criteria.addOrder(Order.desc("id"));
+        List<XtlNoteEntity> noteEntities = criteria.list();
+
+        if (noteEntities != null && !noteEntities.isEmpty()){
+            List<NoteResultModel> results = new ArrayList<>();
+            for (XtlNoteEntity noteEntity : noteEntities){
+                NoteResultModel result = new NoteResultModel();
+                result.setId(noteEntity.getId());
+                List<XtlNoteTagEntity> tagEntities = noteEntity.getTags();
+                if (tagEntities != null && !tagEntities.isEmpty()){
+                    List<String> tags = new ArrayList<>();
+                    for (XtlNoteTagEntity tagEntity : tagEntities){
+                        tags.add(tagEntity.getContent());
+                    }
+                    result.setTags(tags);
+                }
+                result.setTitle(noteEntity.getTitle());
+                result.setCreateTime(DateUtil.getFormatString(noteEntity.getCreateTime(), DateUtil.defaultDatePattern));
+                results.add(result);
+            }
+            return results;
+        }
+
+        return null;
+    }
+
 }

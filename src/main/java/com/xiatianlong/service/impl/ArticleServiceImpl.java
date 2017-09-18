@@ -441,7 +441,8 @@ public class ArticleServiceImpl extends BaseServiceImpl implements ArticleServic
         if (id != null){
             criteria.add(Restrictions.lt("id", id));
         }
-        criteria.setMaxResults(5);
+        criteria.add(Restrictions.eq("status", ArticleStatus.SHOW.getCode()));
+        criteria.setMaxResults(7);
         criteria.addOrder(Order.desc("id"));
         List<XtlArticleEntity> articleEntities = criteria.list();
 
