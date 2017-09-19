@@ -139,7 +139,8 @@ public interface ArticleService extends BaseService {
     /**
      * 获取文章列表
      * @param id    文章id
+     * @param keyword   关键字
      * @return  文章对象
      */
-    List<ArticleResultModel> getArticleListByXcx(Integer id);
+    List<ArticleResultModel> getArticleListByXcx(Integer id, String keyword);
 }

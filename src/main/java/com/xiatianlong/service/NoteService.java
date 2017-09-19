@@ -137,8 +137,9 @@ public interface NoteService extends BaseService {
     /**
      * 获取文章列表
      * @param id    文章id
+     * @param keyword 搜索关键字
      * @return  文章对象
      */
-    List<NoteResultModel> getNoteListByXcx(Integer id);
+    List<NoteResultModel> getNoteListByXcx(Integer id, String keyword);
 
 }

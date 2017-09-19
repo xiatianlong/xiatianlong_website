@@ -21,6 +21,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.sql.JoinType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -445,13 +446,22 @@ public class NoteServiceImpl extends BaseServiceImpl implements NoteService {
     /**
      * 获取文章列表
      * @param id    文章id
+     * @param keyword 搜索关键字
      * @return  文章对象
      */
+    @SuppressWarnings("unchecked")
     @Override
-    public List<NoteResultModel> getNoteListByXcx(Integer id) {
+    public List<NoteResultModel> getNoteListByXcx(Integer id, String keyword) {
         Criteria criteria = getSession().createCriteria(XtlNoteEntity.class);
         if (id != null){
             criteria.add(Restrictions.lt("id", id));
+        }
+        if (!StringUtils.isEmpty(keyword)){
+            criteria.createAlias("tags", "tag", JoinType.LEFT_OUTER_JOIN);
+            // 检索条件包含笔记标题和标签内容
+            criteria.add(Restrictions.or(Restrictions.like("tag.content", keyword, MatchMode.ANYWHERE), Restrictions.like("title", keyword, MatchMode.ANYWHERE)));
+            criteria.add(Restrictions.like("tag.content", keyword, MatchMode.ANYWHERE));
+            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         }
         criteria.add(Restrictions.eq("status", NoteStatus.SHOW.getCode()));
         criteria.setMaxResults(7);

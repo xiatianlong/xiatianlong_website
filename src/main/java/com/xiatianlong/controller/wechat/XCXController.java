@@ -10,6 +10,7 @@ import com.xiatianlong.service.ArticleService;
 import com.xiatianlong.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,7 +37,7 @@ public class XCXController extends BaseController {
     @ResponseBody
     public ArticleResult articleInit(){
         ArticleResult result = new ArticleResult();
-        List<ArticleResultModel> resultList = articleService.getArticleListByXcx(null);
+        List<ArticleResultModel> resultList = articleService.getArticleListByXcx(null, null);
         if(resultList != null && !resultList.isEmpty()){
             result.setResult(Common.SUCCESS);
             result.setDataList(resultList);
@@ -50,15 +51,33 @@ public class XCXController extends BaseController {
      * 文章加载更多
      * @return  加载更多
      */
-    @RequestMapping(value = "/article/more", method = RequestMethod.POST)
+    @RequestMapping(value = "/article/{lastId}/more", method = RequestMethod.POST)
     @ResponseBody
-    public ArticleResult articleGetMore(Integer id){
+    public ArticleResult articleGetMore(@PathVariable("lastId") Integer lastId, String keyword){
         ArticleResult result = new ArticleResult();
-        if (id == null){
+        if (lastId == null){
             result.setMessage(getMessage("request.error"));
             return result;
         }
-        List<ArticleResultModel> resultList = articleService.getArticleListByXcx(id);
+        List<ArticleResultModel> resultList = articleService.getArticleListByXcx(lastId, keyword);
+        if(resultList != null && !resultList.isEmpty()){
+            result.setResult(Common.SUCCESS);
+            result.setDataList(resultList);
+        }else{
+            result.setMessage(getMessage("no.more.data"));
+        }
+        return result;
+    }
+
+    /**
+     * 文章搜索
+     * @return  加载更多
+     */
+    @RequestMapping(value = "/article/search", method = RequestMethod.POST)
+    @ResponseBody
+    public ArticleResult articleGetMore(String keyword){
+        ArticleResult result = new ArticleResult();
+        List<ArticleResultModel> resultList = articleService.getArticleListByXcx(null, keyword);
         if(resultList != null && !resultList.isEmpty()){
             result.setResult(Common.SUCCESS);
             result.setDataList(resultList);
@@ -76,7 +95,7 @@ public class XCXController extends BaseController {
     @ResponseBody
     public NoteResult noteInit(){
         NoteResult result = new NoteResult();
-        List<NoteResultModel> resultList = noteService.getNoteListByXcx(null);
+        List<NoteResultModel> resultList = noteService.getNoteListByXcx(null, null);
         if(resultList != null && !resultList.isEmpty()){
             result.setResult(Common.SUCCESS);
             result.setDataList(resultList);
@@ -90,15 +109,33 @@ public class XCXController extends BaseController {
      * 笔记加载更多
      * @return  笔记加载更多
      */
-    @RequestMapping(value = "/note/more", method = RequestMethod.POST)
+    @RequestMapping(value = "/note/{lastId}/more", method = RequestMethod.POST)
     @ResponseBody
-    public NoteResult noteGetMore(Integer id){
+    public NoteResult noteGetMore(@PathVariable("lastId") Integer lastId, String keyword){
         NoteResult result = new NoteResult();
-        if (id == null){
+        if (lastId == null){
             result.setMessage(getMessage("request.error"));
             return result;
         }
-        List<NoteResultModel> resultList = noteService.getNoteListByXcx(id);
+        List<NoteResultModel> resultList = noteService.getNoteListByXcx(lastId, keyword);
+        if(resultList != null && !resultList.isEmpty()){
+            result.setResult(Common.SUCCESS);
+            result.setDataList(resultList);
+        }else{
+            result.setMessage(getMessage("no.more.data"));
+        }
+        return result;
+    }
+
+    /**
+     * 笔记检索
+     * @return  笔记加载更多
+     */
+    @RequestMapping(value = "/note/search", method = RequestMethod.POST)
+    @ResponseBody
+    public NoteResult noteGetMore(String keyword){
+        NoteResult result = new NoteResult();
+        List<NoteResultModel> resultList = noteService.getNoteListByXcx(null, keyword);
         if(resultList != null && !resultList.isEmpty()){
             result.setResult(Common.SUCCESS);
             result.setDataList(resultList);

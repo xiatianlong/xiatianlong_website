@@ -431,15 +431,19 @@ public class ArticleServiceImpl extends BaseServiceImpl implements ArticleServic
     /**
      * 获取文章列表
      * @param id    文章id
+     * @param keyword   关键字
      * @return  文章对象
      */
     @SuppressWarnings("unchecked")
     @Override
-    public List<ArticleResultModel> getArticleListByXcx(Integer id) {
+    public List<ArticleResultModel> getArticleListByXcx(Integer id, String keyword) {
 
         Criteria criteria = getSession().createCriteria(XtlArticleEntity.class);
         if (id != null){
             criteria.add(Restrictions.lt("id", id));
+        }
+        if (keyword != null){
+            criteria.add(Restrictions.like("title", keyword, MatchMode.ANYWHERE));
         }
         criteria.add(Restrictions.eq("status", ArticleStatus.SHOW.getCode()));
         criteria.setMaxResults(7);
