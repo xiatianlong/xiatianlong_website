@@ -96,6 +96,8 @@ public class XCXController extends BaseController {
         if(detail != null){
             result.setResult(Common.SUCCESS);
             result.setData(detail);
+            // 增加次数
+            articleService.addArticleBrowseTimes(articleService.getArticle(articleId));
         }else{
             result.setMessage(getMessage("request.obj.null"));
         }
@@ -172,6 +174,8 @@ public class XCXController extends BaseController {
         if(detail != null){
             result.setResult(Common.SUCCESS);
             result.setData(detail);
+            // 增加次数
+            noteService.addNoteBrowseTimes(noteService.getNote(noteId));
         }else{
             result.setMessage(getMessage("request.obj.null"));
         }
