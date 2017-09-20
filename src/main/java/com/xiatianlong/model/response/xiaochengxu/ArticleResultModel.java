@@ -34,6 +34,11 @@ public class ArticleResultModel implements Serializable {
      */
     private String createTime;
 
+    /**
+     * 浏览次数
+     */
+    private int browseTimes;
+
 
     /**
      * 获取 文章物理id
@@ -103,5 +108,20 @@ public class ArticleResultModel implements Serializable {
      */
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
+    }
+
+
+    /**
+     * 获取 浏览次数
+     */
+    public int getBrowseTimes() {
+        return this.browseTimes;
+    }
+
+    /**
+     * 设置 浏览次数
+     */
+    public void setBrowseTimes(int browseTimes) {
+        this.browseTimes = browseTimes;
     }
 }

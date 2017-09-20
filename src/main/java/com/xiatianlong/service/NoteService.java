@@ -7,6 +7,7 @@ import com.xiatianlong.model.form.IndexNoteQueryForm;
 import com.xiatianlong.model.form.NoteForm;
 import com.xiatianlong.model.form.NoteQueryPageForm;
 import com.xiatianlong.model.response.AsynchronousResult;
+import com.xiatianlong.model.response.xiaochengxu.NoteDetailModel;
 import com.xiatianlong.model.response.xiaochengxu.NoteResultModel;
 import com.xiatianlong.utils.PageList;
 
@@ -141,5 +142,12 @@ public interface NoteService extends BaseService {
      * @return  文章对象
      */
     List<NoteResultModel> getNoteListByXcx(Integer id, String keyword);
+
+    /**
+     * 获取笔记详情
+     * @param id    笔记id
+     * @return  笔记
+     */
+    NoteDetailModel getNoteDetailByXcx(Integer id);
 
 }

@@ -10,6 +10,7 @@ import com.xiatianlong.model.ArticleTimeMonthModel;
 import com.xiatianlong.model.form.ArticleForm;
 import com.xiatianlong.model.form.ArticleQueryPageForm;
 import com.xiatianlong.model.response.AsynchronousResult;
+import com.xiatianlong.model.response.xiaochengxu.ArticleDetailModel;
 import com.xiatianlong.model.response.xiaochengxu.ArticleResultModel;
 import com.xiatianlong.service.ArticleService;
 import com.xiatianlong.utils.DateUtil;
@@ -458,12 +459,33 @@ public class ArticleServiceImpl extends BaseServiceImpl implements ArticleServic
                 result.setIntroduction(articleEntity.getIntroduction());
                 result.setImage(StringUtils.isEmpty(articleEntity.getImage())?"":articleEntity.getImage());
                 result.setTitle(articleEntity.getTitle());
+                result.setBrowseTimes(articleEntity.getBrowseTimes());
                 result.setCreateTime(DateUtil.getFormatString(articleEntity.getCreateTime(), DateUtil.defaultDatePattern));
                 results.add(result);
             }
             return results;
         }
 
+        return null;
+    }
+
+
+    /**
+     * 获取文章详情
+     * @param id    文章id
+     * @return 文章
+     */
+    @Override
+    public ArticleDetailModel getArticleDetailByXcx(Integer id) {
+        XtlArticleEntity articleEntity  = getArticle(id);
+        if (articleEntity != null && articleEntity.getStatus().equals(ArticleStatus.SHOW.getCode())){
+            ArticleDetailModel model = new ArticleDetailModel();
+            model.setContent(articleEntity.getContent());
+            model.setTitle(articleEntity.getTitle());
+            model.setUserName(articleEntity.getUser().getUserName());
+            model.setCreateTime(DateUtil.getFormatString(articleEntity.getCreateTime(), DateUtil.defaultDatePattern));
+            return model;
+        }
         return null;
     }
 

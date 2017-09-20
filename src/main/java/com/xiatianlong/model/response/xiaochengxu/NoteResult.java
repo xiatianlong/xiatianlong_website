@@ -27,6 +27,10 @@ public class NoteResult implements Serializable {
      */
     private List<NoteResultModel> dataList;
 
+    /**
+     *  单个笔记
+     */
+    private NoteDetailModel data;
 
     /**
      * 获取 返回类型
@@ -68,5 +72,20 @@ public class NoteResult implements Serializable {
      */
     public void setDataList(List<NoteResultModel> dataList) {
         this.dataList = dataList;
+    }
+
+
+    /**
+     * 获取  单个笔记
+     */
+    public NoteDetailModel getData() {
+        return this.data;
+    }
+
+    /**
+     * 设置  单个笔记
+     */
+    public void setData(NoteDetailModel data) {
+        this.data = data;
     }
 }

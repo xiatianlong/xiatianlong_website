@@ -2,10 +2,7 @@ package com.xiatianlong.controller.wechat;
 
 import com.xiatianlong.common.Common;
 import com.xiatianlong.controller.BaseController;
-import com.xiatianlong.model.response.xiaochengxu.ArticleResult;
-import com.xiatianlong.model.response.xiaochengxu.ArticleResultModel;
-import com.xiatianlong.model.response.xiaochengxu.NoteResult;
-import com.xiatianlong.model.response.xiaochengxu.NoteResultModel;
+import com.xiatianlong.model.response.xiaochengxu.*;
 import com.xiatianlong.service.ArticleService;
 import com.xiatianlong.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +85,24 @@ public class XCXController extends BaseController {
     }
 
     /**
+     * 文章详情
+     * @return  文章
+     */
+    @RequestMapping(value = "/article/{articleId}/detail", method = RequestMethod.GET)
+    @ResponseBody
+    public ArticleResult articleDetail(@PathVariable("articleId") Integer articleId){
+        ArticleResult result = new ArticleResult();
+        ArticleDetailModel detail = articleService.getArticleDetailByXcx(articleId);
+        if(detail != null){
+            result.setResult(Common.SUCCESS);
+            result.setData(detail);
+        }else{
+            result.setMessage(getMessage("request.obj.null"));
+        }
+        return result;
+    }
+
+    /**
      * 笔记初始化
      * @return  笔记初始化
      */
@@ -141,6 +156,24 @@ public class XCXController extends BaseController {
             result.setDataList(resultList);
         }else{
             result.setMessage(getMessage("no.more.data"));
+        }
+        return result;
+    }
+
+    /**
+     * 笔记详情
+     * @return  笔记
+     */
+    @RequestMapping(value = "/note/{noteId}/detail", method = RequestMethod.GET)
+    @ResponseBody
+    public NoteResult noteDetail(@PathVariable("noteId") Integer noteId){
+        NoteResult result = new NoteResult();
+        NoteDetailModel detail = noteService.getNoteDetailByXcx(noteId);
+        if(detail != null){
+            result.setResult(Common.SUCCESS);
+            result.setData(detail);
+        }else{
+            result.setMessage(getMessage("request.obj.null"));
         }
         return result;
     }

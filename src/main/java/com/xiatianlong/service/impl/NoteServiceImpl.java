@@ -11,6 +11,7 @@ import com.xiatianlong.model.form.IndexNoteQueryForm;
 import com.xiatianlong.model.form.NoteForm;
 import com.xiatianlong.model.form.NoteQueryPageForm;
 import com.xiatianlong.model.response.AsynchronousResult;
+import com.xiatianlong.model.response.xiaochengxu.NoteDetailModel;
 import com.xiatianlong.model.response.xiaochengxu.NoteResultModel;
 import com.xiatianlong.service.NoteService;
 import com.xiatianlong.utils.DateUtil;
@@ -482,12 +483,40 @@ public class NoteServiceImpl extends BaseServiceImpl implements NoteService {
                     result.setTags(tags);
                 }
                 result.setTitle(noteEntity.getTitle());
+                result.setBrowseTimes(noteEntity.getBrowseTimes());
                 result.setCreateTime(DateUtil.getFormatString(noteEntity.getCreateTime(), DateUtil.defaultDatePattern));
                 results.add(result);
             }
             return results;
         }
 
+        return null;
+    }
+
+    /**
+     * 获取笔记详情
+     * @param id    笔记id
+     * @return  笔记
+     */
+    @Override
+    public NoteDetailModel getNoteDetailByXcx(Integer id) {
+        XtlNoteEntity noteEntity = getNote(id);
+
+        if (noteEntity != null && noteEntity.getStatus().equals(NoteStatus.SHOW.getCode())){
+            NoteDetailModel model = new NoteDetailModel();
+            model.setUserName(noteEntity.getUser().getUserName());
+            model.setTitle(noteEntity.getTitle());
+            model.setContent(noteEntity.getContent());
+            model.setCreateTime(DateUtil.getFormatString(noteEntity.getCreateTime(), DateUtil.defaultDatePattern));
+            if(noteEntity.getTags() != null && !noteEntity.getTags().isEmpty()){
+                List<String> tags = new ArrayList<>();
+                for (XtlNoteTagEntity tagEntity : noteEntity.getTags()){
+                    tags.add(tagEntity.getContent());
+                }
+                model.setTags(tags);
+            }
+            return model;
+        }
         return null;
     }
 

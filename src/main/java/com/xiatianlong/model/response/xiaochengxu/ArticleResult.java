@@ -27,6 +27,10 @@ public class ArticleResult implements Serializable {
      */
     private List<ArticleResultModel> dataList;
 
+    /**
+     * 单个文章
+     */
+    private ArticleDetailModel data;
 
     /**
      * 获取 返回类型
@@ -68,5 +72,20 @@ public class ArticleResult implements Serializable {
      */
     public void setDataList(List<ArticleResultModel> dataList) {
         this.dataList = dataList;
+    }
+
+
+    /**
+     * 获取 单个文章
+     */
+    public ArticleDetailModel getData() {
+        return this.data;
+    }
+
+    /**
+     * 设置 单个文章
+     */
+    public void setData(ArticleDetailModel data) {
+        this.data = data;
     }
 }
