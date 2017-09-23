@@ -2,11 +2,15 @@ package com.xiatianlong.controller.wechat;
 
 import com.xiatianlong.common.Common;
 import com.xiatianlong.controller.BaseController;
+import com.xiatianlong.model.form.MessageForm;
+import com.xiatianlong.model.response.AsynchronousResult;
 import com.xiatianlong.model.response.xiaochengxu.*;
 import com.xiatianlong.service.ArticleService;
+import com.xiatianlong.service.MessageService;
 import com.xiatianlong.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +30,8 @@ public class XCXController extends BaseController {
     private ArticleService articleService;
     @Autowired
     private NoteService noteService;
+    @Autowired
+    private MessageService messageService;
     /**
      * 文章初始化
      * @return  文章初始化
@@ -179,6 +185,24 @@ public class XCXController extends BaseController {
         }else{
             result.setMessage(getMessage("request.obj.null"));
         }
+        return result;
+    }
+
+    /**
+     * 留言
+     * @return  留言
+     */
+    @RequestMapping(value = "/addMessage", method = RequestMethod.POST)
+    @ResponseBody
+    public AsynchronousResult addMessage(MessageForm form){
+        AsynchronousResult result = new AsynchronousResult();
+        if(StringUtils.isEmpty(form.getContent())){
+            result.setMessage(getMessage("message.content.null"));
+            result.setResult(Common.FAIL);
+            return result;
+        }
+        messageService.addMessage(form);
+        result.setResult(Common.SUCCESS);
         return result;
     }
 
