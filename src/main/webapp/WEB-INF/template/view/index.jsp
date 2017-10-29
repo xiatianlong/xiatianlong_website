@@ -97,7 +97,14 @@
                                             <c:when test="${not empty newList && newList.size() gt 0}">
                                                 <c:forEach items="${newList}" var="article">
                                                     <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-text-overflow xtl-tab-item">
-                                                        <a href="${pageContext.request.contextPath}/article/${article.id}">${article.title}</a>
+                                                        <c:choose>
+                                                            <c:when test="${article.type eq 'article'}">
+                                                                <a href="${pageContext.request.contextPath}/article/${article.id}">${article.title}</a>
+                                                            </c:when>
+                                                            <c:when test="${article.type eq 'note'}">
+                                                                <a href="${pageContext.request.contextPath}/note/${article.id}">${article.title}</a>
+                                                            </c:when>
+                                                        </c:choose>
                                                     </div>
                                                 </c:forEach>
                                             </c:when>
@@ -119,7 +126,14 @@
                                             <c:when test="${not empty hotList && hotList.size() gt 0}">
                                                 <c:forEach items="${hotList}" var="article">
                                                     <div class="col-md-12 col-sm-12 col-xs-12 padding-0 xtl-text-overflow xtl-tab-item">
-                                                        <a href="${pageContext.request.contextPath}/article/${article.id}">${article.title}</a>
+                                                        <c:choose>
+                                                            <c:when test="${article.type eq 'article'}">
+                                                                <a href="${pageContext.request.contextPath}/article/${article.id}">${article.title}</a>
+                                                            </c:when>
+                                                            <c:when test="${article.type eq 'note'}">
+                                                                <a href="${pageContext.request.contextPath}/note/${article.id}">${article.title}</a>
+                                                            </c:when>
+                                                        </c:choose>
                                                     </div>
                                                 </c:forEach>
                                             </c:when>

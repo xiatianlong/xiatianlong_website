@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-12 padding-0">
+            <div class="col-md-12 padding-0 margin-t-40">
                 <div class="col-md-3 col-sm-5">
                     <img src="${pageContext.request.contextPath}/resources/images/xiatianlong.jpg" class="animated zoomIn" id="about-xiatianlong-img">
                     <div class="text-c">

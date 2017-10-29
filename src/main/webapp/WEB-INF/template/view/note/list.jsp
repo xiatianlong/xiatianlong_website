@@ -22,7 +22,7 @@
 
 <jsp:include page="../basic/navbar.jsp"></jsp:include>
 
-<div>
+<div class="margin-t-5">
     <%--content begin--%>
     <div class="container">
         <%--小尺寸显示  begin--%>
@@ -48,11 +48,11 @@
 
             </div>
             <div class="col-md-12 padding-0 margin-t-10">
-                <div class="col-md-10">
+                <div class="col-md-10 padding-0">
                     <c:if test="${not empty noteList && noteList.size() gt 0}">
-                        <div id="noteContent">
+                        <section id="noteContent">
                             <c:forEach items="${noteList}" var="note" varStatus="status">
-                                <div class="white-panel item animated zoomIn xtl-note-card" noteId="${note.id}">
+                                <article class="white-panel animated zoomIn xtl-note-card" noteId="${note.id}">
                                     <div><span class="xtl-note-title">${note.title}</span></div>
                                     <div>
                                         <c:forEach items="${note.tags}" var="tag">
@@ -65,16 +65,15 @@
                                     <div class="text-r">
                                         <span class="xtl-note-createtime"><i class="fa fa-clock-o"></i> ${note.createTime}</span>
                                     </div>
-                                </div>
+                                </article>
                             </c:forEach>
-                        </div>
+                        </section>
                     </c:if>
                     <c:if test="${empty noteList || noteList.size() == 0}">
                         <div class="col-md-12 text-c xtl-has-not">暂无笔记....</div>
                     </c:if>
                 </div>
                 <div class="col-md-2 padding-0 hidden-xs">
-                    <blockquote class="xtl-blockquote"><span>搜索</span></blockquote>
                     <div class="input-group margin-b-10" id="note-search-content">
                         <input type="text" class="form-control xtl-index-input" id="noteSearchInput" placeholder="输入搜索关键字">
                         <span class="input-group-addon xtl-index-input" id="note-search-btn"><i class="fa fa-search"></i></span>
@@ -105,12 +104,12 @@
 </div>
 
 <jsp:include page="../basic/footer.jsp"></jsp:include>
-<%--<script src="${pageContext.request.contextPath}/resources/js/pinterest_grid.js"></script>--%>
-<script src="${pageContext.request.contextPath}/resources/js/mp.mansory.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/pinterest_grid.js"></script>
 <script>
     $(document).ready(function () {
-        $("#noteContent").mpmansory({
-            breakpoints:{lg: 3, md: 3, sm: 4, xs: 6}
+        $("#noteContent").pinterest_grid({
+            no_columns:3,
+            single_column_breakpoint: 700
         });
 
         $("#note-search-content").keydown(function(){
@@ -225,7 +224,7 @@
         for (var i = 0; i < noteList.length; i++){
             var html = '';
             var note = noteList[i];
-            html += '<div class="white-panel item animated zoomIn xtl-note-card" noteId="'+note.id+'">';
+            html += '<article class="white-panel animated zoomIn xtl-note-card" noteId="'+note.id+'">';
             html += '<div><span class="xtl-note-title">'+note.title+'</span></div>';
             html += '<div>';
             for (var j = 0; j < note.tags.length; j++){
@@ -238,12 +237,9 @@
             html += '<div class="text-r">';
             html += ' <span class="xtl-note-createtime"><i class="fa fa-clock-o"></i> '+note.createTime+'</span>';
             html += '</div>';
-            html += '</div>';
+            html += '</article>';
             $("#noteContent").append(html);
         }
-        $("#noteContent").mpmansory({
-            breakpoints:{lg: 3, md: 3, sm: 4, xs: 6}
-        });
     }
 </script>
 </body>

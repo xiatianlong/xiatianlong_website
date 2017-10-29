@@ -201,7 +201,7 @@ body{
     cursor: pointer;
 }
 .xtl-blockquote{
-    padding: 5px 15px;
+    padding: 10px 15px;
     margin: 0 0 10px;
     font-size: 16px;
     border-left: 5px solid rgba(161,40,40,0.5);
@@ -302,6 +302,7 @@ body{
 .xtl-message-btn{
     display: inline-block;
     margin-top: 20px;
+    margin-bottom: 10px;
     padding: 7px 15px;
     border: 1px solid rgba(161,40,40,0.7);
     letter-spacing: 5px;
@@ -313,6 +314,9 @@ body{
     cursor: pointer;
     border: 2px solid rgba(161,40,40,1);
     font-weight: 400;
+}
+#addMessageModal .modal-dialog{
+    margin-top: 80px;
 }
 #message-text{
     height: 80px;
